@@ -113,12 +113,19 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above your given a function that will return a random number between 0 and 30, and an array full or numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-var finder = function(arr) {
-
+var finder = function(arr, find) {
+	var result = false;
+	for (var i = 0; i < arr.length; i++) {
+		if(arr[i] === find) {
+			return true;
+		} 
+	}
+	return result;
 }
-
+var numToFind = getRandomArbitrary();
+var found = finder(numbers, numToFind);
+console.log(found);
 //Next problem
-
 
 
 var str = 'this is my sentence';
@@ -144,9 +151,28 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
   //Code Here
+var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 var removeItem = function(myGroceryList, remove){
-
+	var index;
+	if(( index = myGroceryList.indexOf(remove)) >= 0 ) {
+		myGroceryList.splice(index, 1);
+	}
+	return myGroceryList;
 }
+myGroceryList = removeItem(myGroceryList, 'chips');
+console.log(myGroceryList);
+
+var addItem = function(myGroceryList, add){
+	var index;
+	if(( index = myGroceryList.indexOf(add)) <= 0 ){
+		myGroceryList.push(add);
+	}
+	return myGroceryList;
+}
+myGroceryList = addItem(myGroceryList, 'Jerky');
+console.log(myGroceryList);
+
+
 //removeItem('chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem('Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
@@ -159,7 +185,15 @@ var removeItem = function(myGroceryList, remove){
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+var maker = function(){
+	var arr = new Array();
+	for (var i = 0; i < 215; i++) {
+		arr[i] = i + 1;
+	}
+	return arr;
+}
+var largeArray = maker();
+console.log(largeArray);
 
 
 //Next Problem
@@ -170,7 +204,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-
+var addTen = function(arr){
+	for (var i = 0; i < arr.length; i++) {
+		arr[i] = parseInt(arr[i],10) + 10;
+	}
+	return arr;
+}
+addTen(numbers);
 
 
 //Next Problem
@@ -191,7 +231,14 @@ for(var i = 0; i < num2; i++){
 //Write a function that is given arr1 and arr2 is it's only arguments. Return the array which is longest.
 
   //Code Here
-
+var largest = function (arr1, arr2) {
+	if (arr1 > arr2) {
+		return "arr1";
+	} else if (arr1 < arr2) {
+		return "arr2";
+	}
+}
+largest(arr1, arr2);
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
@@ -199,3 +246,7 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
+var both = function (arr1, arr2) {
+	return[arr1, arr2];
+}
+var finalArray = both(arr1, arr2);
