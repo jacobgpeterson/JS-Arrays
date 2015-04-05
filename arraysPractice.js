@@ -247,6 +247,7 @@ largest(arr1, arr2);
 
   //Code Here
 var both = function (arr1, arr2) {
-	return[arr1, arr2];
+	return arr1.concat(arr2)
 }
 var finalArray = both(arr1, arr2);
+(finalArray);
